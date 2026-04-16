@@ -1,9 +1,10 @@
 package com.axololt.assetmanagement.dto;
 
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
+import lombok.Data;
 
+@Data
 public class AssetRequest {
     @NotBlank
     private String name;
