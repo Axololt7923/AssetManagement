@@ -41,6 +41,8 @@ public class Employee
     @Column(name= "employee_role" ,nullable = false)
     private EmployeeRole employeeRole = EmployeeRole.EMPLOYEE;
 
+    private Boolean active = true;
+
     public enum EmployeeRole {
         ASSETS_MANAGER,
         EMPLOYEE,
