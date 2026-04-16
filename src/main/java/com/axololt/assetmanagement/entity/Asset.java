@@ -31,7 +31,8 @@ public class Asset {
     @JoinColumn(name = "employee_id")
     private Employee currentEmployee;
 
-    private float price;
+    @Column(nullable = false)
+    private Float price;
 
     public enum AssetType {
         electronic,
