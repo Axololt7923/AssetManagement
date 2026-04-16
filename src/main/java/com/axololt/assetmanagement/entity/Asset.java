@@ -20,6 +20,7 @@ public class Asset {
 
     @Column(nullable = false)
     private String name;
+
     private String description;
 
     @Enumerated(EnumType.STRING)
@@ -35,5 +36,6 @@ public class Asset {
     public enum AssetType {
         electronic,
         furniture,
+        not_available
     }
 }
