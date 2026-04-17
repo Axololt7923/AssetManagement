@@ -1,12 +1,16 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:${DB_PORT:5432}/${DB_NAME:assets-storage}
-    username: ${DB_USER:user}
+    url: ${DB_URL}
+    username: ${DB_USERNAME:user}
     password: ${DB_PASSWORD:password}
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 2
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: validate
     show-sql: true
+    defer-datasource-initialization: true
     properties:
       hibernate:
         transaction:
