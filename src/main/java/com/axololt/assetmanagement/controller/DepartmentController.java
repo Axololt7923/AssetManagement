@@ -1,12 +1,23 @@
 package com.axololt.assetmanagement.controller;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.axololt.assetmanagement.dto.DepartmentRequest;
+import com.axololt.assetmanagement.entity.Department;
+import com.axololt.assetmanagement.service.DepartmentService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-@RestController("/api/department")
+@RestController
+@RequestMapping("/api/department")
+@RequiredArgsConstructor
 public class DepartmentController {
-    @PostMapping("/add")
-    public String create() {
-        return "create";
+    private final DepartmentService departmentService;
+
+    @PostMapping("add-department")
+    public ResponseEntity<Department> create(
+            @RequestHeader(name = "access-key", required = false) String accessKey,
+            @RequestBody DepartmentRequest departmentRequest
+    ) {
+        return departmentService.createDepartment(departmentRequest, accessKey);
     }
 }

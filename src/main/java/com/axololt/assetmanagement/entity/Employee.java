@@ -39,8 +39,10 @@ public class Employee
 
     @Enumerated(EnumType.STRING)
     @Column(name= "employee_role" ,nullable = false)
+    @Builder.Default
     private EmployeeRole employeeRole = EmployeeRole.EMPLOYEE;
 
+    @Builder.Default
     private Boolean active = true;
 
     public enum EmployeeRole {
